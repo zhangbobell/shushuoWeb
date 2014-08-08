@@ -2,36 +2,211 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>数说 - 用数据说话</title>
 
-	<link rel="stylesheet" type="text/css" href="./lib/fullpage/jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fixed-positioning.css" />
 
-	<script src="./lib/jquery.min.js"></script>
-	<script src="./lib/jquery-ui.min.js"></script>
+	<script src="./js/jquery.min.js"></script>
 
-	<script type="text/javascript" src="./lib/fullpage/jquery.fullPage.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#fullpage').fullpage({
-				sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff']
-			});
-		});
-	</script>
 </head>
 <body>
-	<div id="fullpage">
-	<div class="section active" id="section0"><h1>fullPage.js</h1></div>
-	<div class="section" id="section1">
-	    <div class="slide "><h1>Simple Demo</h1></div>
-	    <div class="slide active"><h1>Only text</h1></div>
-	    <div class="slide"><h1>And text</h1></div>
-	    <div class="slide"><h1>And more text</h1></div>
-	</div>
-	<div class="section" id="section2"><h1>No wraps, no extra markup</h1></div>
-	<div class="section" id="section3"><h1>Just the simplest demo ever</h1></div>
-</div>
-	<!-- <div id="background-layer"></div> -->
-	<!-- <div id="lines-layer"></div> -->
-	<!-- <div id="content-layer"></div> -->
+    <div id="mid-layer" data-0="background-position: 50% 0%;" data-end="background-position: 50% 30%"></div>
+    <div id="background-layer" data-0="background-position: 50% 0%;" data-end="background-position: 50% 12%"></div>
+    <ul id="nav">
+        <div id="nav-logo"></div>
+        <li>首&nbsp;&nbsp;&nbsp;&nbsp;页</li>
+        <li>关于我们</li>
+        <li>案&nbsp;&nbsp;&nbsp;&nbsp;例</li>
+        <li>联系我们</li>
+        <div id="cur-section"></div>
+    </ul>
+
+    <div id="first-section" data-0p="opacity[quadratic]: 1;" data-25p=" opacity: 0.2;">
+        <div id="logo-background"><div id="logo"></div></div>
+        <div id="slogan">专业数据可视化服务</div>
+        <div id="down-arrow"></div>
+    </div>
+
+    <div id="second-section">
+        <div id="sea" data-25p="opacity: 0.2;" data-50p="opacity: 1;"></div>
+    </div>
+
+    <div id="third-section">
+        <div class="section-title">案&nbsp;&nbsp;&nbsp;&nbsp;例</div>
+        <div class="prj-block">
+            <div class="prj-line first-line">
+                <ul class="prj-wrap-odd fix">
+                    <li class="prj"></li>
+                    <li class="prj"></li>
+                    <li class="prj"></li>
+                </ul>
+            </div>
+            <div class="prj-line">
+                <ul class="prj-wrap-even fix">
+                    <li class="prj"></li>
+                    <li class="prj"></li>
+                    <li class="prj"></li>
+                    <li class="prj"></li>
+                </ul>
+            </div>
+            <div class="prj-line">
+                <ul class="prj-wrap-odd fix">
+                    <li class="prj"></li>
+                    <li class="prj"></li>
+                    <li class="prj"></li>
+                </ul>
+            </div>
+        </div>
+        <div id="more">查看更多</div>
+    </div>
+
+    <div id="forth-section">
+        <div class="section-title">联系我们</div>
+        <div class="cnt-line">
+            <div class="cnt-wrap fix">
+                <div class="cnt email first-cnt">
+                    <div class="cnt-title">邮箱</div>
+                    <div class="cnt-detail"><a href="mailto:f-cube@baidu.com" onclick="javascript:;">f-cube@baidu.com</a></div>
+                </div>
+                <div class="cnt qq">
+                    <div class="cnt-title">QQ</div>
+                    <div class="cnt-detail">234589330</div>
+                </div>
+                <div class="cnt addr">
+                    <div class="cnt-title">地址</div>
+                    <div class="cnt-detail">北京市海淀区上地十街</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+                <ul class="friend-wrap fix">
+                    <li class="friend-link baidu-bim">BIM营销研究院</li>
+                    <li class="friend-link baidu-map">百度地图</li>
+                    <li class="friend-link baidu-tieba">百度贴吧</li>
+                    <li class="friend-link baidu-brand">品牌数字资产榜</li>
+                    <li class="friend-link baidu-daiyan">百度代言</li>
+                </ul>
+            <div class="copyright">&copy; 2014 Baidu. All rights reserved.</div>
+        </div>
+    </div>
+
+    <div id="skrollr-body"></div>
+
+
+    <script type="text/javascript" src="./js/skrollr.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.mousewheel.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="../skrollr-ie/dist/skrollr.ie.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        var s = skrollr.init({
+            edgeStrategy: 'set',
+            smoothScrolling: true,
+            easing: {
+                WTF: Math.random,
+                inverted: function(p) {
+                    return 1-p;
+                }
+
+            }
+        });
+
+        $(function(){
+
+            var isInProcess = false;
+
+
+            var scrollHandler = function(e, d) {
+
+                var direction = 0;  // -1：向下 1：向上
+
+                if (isInProcess) return;
+                isInProcess = true;
+
+                if (e.type == 'keydown') {
+                    if (e.keyCode === 37 || e.keyCode === 38) direction = 1;  // 向上
+                    else if(e.keyCode === 39 || e.keyCode === 40 || e.keyCode === 32) direction = -1;  // 向下
+                    else direction = 0;
+                } else {
+                    direction= e.deltaY;
+                }
+
+                s.animateTo(s.getScrollTop() - direction * $(window).height(), {
+                    duration: 800,
+                    easing: 'swing',
+                    done: function(){
+                        isInProcess = false;
+                    }
+                });
+            };
+
+            var resizeSectionHandler = function(){
+                var sectionHeight = $(window).height();
+
+                $.each($('#cur-section')[0].dataset, function(idx, ele){
+                    $('#cur-section').removeAttr('data-' + idx );
+                });
+
+                $('#cur-section')
+                        .attr('data-0', 'top[swing]: 55px')
+                        .attr('data-' + 1 * sectionHeight, 'top: 87px')
+                        .attr('data-' + 2 * sectionHeight, 'top: 119px')
+                        .attr('data-' + 3 * sectionHeight, 'top: 161px');
+                s.refresh($('#cur-section'));
+
+                $('#first-section, #second-section, #third-section, #forth-section').height(sectionHeight+'px');
+
+                var curSectionIndex = Math.ceil(s.getScrollTop()/sectionHeight-0.5);
+                s.setScrollTop(curSectionIndex * sectionHeight);
+            };
+
+            var resizeSection3Handler = function(){
+                var sectionHeight = $(window).height(),
+                    sectionWidth = $(window).width(),
+                    ratio = Math.min(sectionHeight/1050, Math.min(sectionWidth, 976)/976);
+
+                $('.prj').width($('.prj').width() * ratio);
+                $('.prj').height($('.prj').height() * ratio);
+                $('.prj').css('background-size', 244 * ratio + 'px ' + 280 * ratio + 'px');
+
+                $('.prj-wrap-odd').css('width', 3 * $('.prj').width() + 'px');
+                $('.prj-wrap-even').css('width', 4 * $('.prj').width() + 'px');
+                $('.prj-wrap-odd, .prj-wrap-even').css('height', $('.prj').height() + 'px');
+
+                $('.prj-line').css('height', $('.prj').height() + 'px');
+                $('.prj-line').css('margin-top', -71 * ratio + 'px');
+
+                $('.prj-block').css('width', 4 * $('.prj').width * ratio + 'px');
+                $('.prj-block').css('margin-top', -(3 * $('.prj').height - 2 * $('.prj-line').css('margin-top')) / 2  + 'px');
+                $('.prj-block').css('margin-left', -$('.prj-block').css('width') / 2 + 'px' );
+            }
+
+
+
+            $(document).mousewheel(scrollHandler);
+            $(document).keydown(scrollHandler);
+            resizeSectionHandler();
+            resizeSection3Handler();
+
+            $('#nav li').click(function(e){
+                s.animateTo($(e.target).index() * $(window).height(), {
+                    duration: 800,
+                    easing: 'swing'
+                });
+            });
+
+
+            $(window).resize(function(){
+                resizeSectionHandler();
+                resizeSection3Handler();
+            });
+        });
+    </script>
+
 </body>
 </html>
