@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<img src="images/bg1.png" alt="背景" id='bg'>
 <div class="swiper-container" id='main-slide'>
 <div class="swiper-wrapper">
 	<div class="swiper-slide">
@@ -68,12 +69,18 @@
 <script>
   var swiper = new Swiper('#main-slide',{
   	mode:'vertical',
-    slidesPerView: 1
+    slidesPerView: 1,
+    onSlideChangeStart:function(e){
+    	var idx = e.activeIndex;
+    	$("#bg").css({
+    		webkitTransform:"translate3d(0,"+(-100*idx)+"px,0)"
+    	});
+    }
   })
   var swiperabout= new Swiper('#about',{
   	pagination: '.pagination',
     paginationClickable: true,
-    mode:'horizontal'
+    mode:'horizontal',
   })
   </script>
 </body>
