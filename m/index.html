@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<div class="swiper-container">
+<div class="swiper-container" id='main-slide'>
 <div class="swiper-wrapper">
 	<div class="swiper-slide">
 		<div class="index-logo">
@@ -22,27 +22,34 @@
 		</div>
 	</div>
 	<div class="swiper-slide">
-		<h1>关于我们</h1>
-		<div class="intro-block">
-			<h1>前沿</h1>
-			我们时刻关注数据可视化最新进展，并不断挑战自我，突破创新。
+		<h1 class='pagetitle'>关于我们</h1>
+		<div class="swiper-container" id="about">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<h1>前沿</h1>
+					<p>我们时刻关注数据可视化最新进展，并不断挑战自我，突破创新。</p>
+				</div>
+				<div class="swiper-slide">
+					<h1>设计理念</h1>
+					<p>一切从数据出发。 从理解数据开始，了解数据背后所要表达的故事，设计数据的展示效果。让数据讲出她自己的故事。</p>
+				</div>
+				<div class="swiper-slide">
+					<h1>态度</h1>
+					<p>精益求精和注重细节是我们的宗旨。 每个图表对我们来说都是全新的。我们会从理解数据开始，设计数据展示的每个细节，大到实体对象的展现方式，小到细节颜色的选取，我们都力求做到精益求精。</p>
+				</div>
+				<div class="swiper-slide">
+					<h1>优势</h1>
+					<p>众多百度大数据部门的成功案例。 我们已经与百度的多个产品线合作，成功上线了多个完全不同的定制化图表，并受到了每个产品线的一致好评。在合作的工程中，无论是对数据的理解上，还是效果的设计和展示上，都积累了丰富的经验。</p>
+				</div>
+			</div>
+			<div class="pagination"></div>
 		</div>
-		<div class="intro-block">
-		<h1>设计理念</h1>
-		一切从数据出发。 从理解数据开始，了解数据背后所要表达的故事，设计数据的展示效果。让数据讲出她自己的故事。</div>
-		<div class="intro-block">
-		<h1>态度</h1>
-精益求精和注重细节是我们的宗旨。 每个图表对我们来说都是全新的。我们会从理解数据开始，设计数据展示的每个细节，大到实体对象的展现方式，小到细节颜色的选取，我们都力求做到精益求精。
-		</div>
-		<div class="intro-block"><h1>优势</h1>
-众多百度大数据部门的成功案例。 我们已经与百度的多个产品线合作，成功上线了多个完全不同的定制化图表，并受到了每个产品线的一致好评。在合作的工程中，无论是对数据的理解上，还是效果的设计和展示上，都积累了丰富的经验。</div>
 	</div>
 	<div class="swiper-slide">
-		<h1>案例</h1>
-		
+		<h1 class='pagetitle'>案例</h1>
 	</div>
 	<div class="swiper-slide">
-		<h1>联系我们</h1>
+		<h1 class='pagetitle'>联系我们</h1>
 		<div class="intro-block-clear">
 			<img src="images/email.png" alt="邮箱" width='100'>
 			<h1>邮箱</h1>
@@ -59,9 +66,14 @@
 <script src="./libs/jquery-1.10.1.min.js"></script>
 <script src="./libs/idangerous.swiper.js"></script>
 <script>
-  var mySwiper = new Swiper('.swiper-container',{
+  var swiper = new Swiper('#main-slide',{
   	mode:'vertical',
     slidesPerView: 1
+  })
+  var swiperabout= new Swiper('#about',{
+  	pagination: '.pagination',
+    paginationClickable: true,
+    mode:'horizontal'
   })
   </script>
 </body>

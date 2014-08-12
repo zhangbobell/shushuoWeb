@@ -24,6 +24,7 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:
 }
 .swiper-slide>h1.pagetitle{
 	border-bottom: 1px solid white;
+	margin:0 10px;
 }
 .swiper-slide>.intro-block{
 	margin: 2%;
@@ -83,4 +84,37 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:
 @-webkit-keyframes up-fade{
     0%   { opacity: 1 }
     100% { -webkit-transform: translate3d(0px, -5px, 0px); opacity: 0.5 }
+}
+#about{
+	color: white;
+}
+#about h1{
+	text-align: left;
+	padding: 20px;
+}
+#about p{
+	padding: 20px;
+}
+#about .pagination {
+  position: absolute;
+  z-index: 20;
+  left: 20px;
+  top: 250px;
+}
+#about .swiper-pagination-switch {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  background: #222;
+  margin-right: 8px;
+  opacity: 0.8;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+#about .swiper-visible-switch {
+  background: #aaa;
+}
+#about .swiper-active-switch {
+  background: #fff;
 }
