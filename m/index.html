@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)http://www.idangero.us/sliders/swiper/demos/main-demos/14-different-widths.html -->
+<html lang="en"><head>
+<meta name="viewport" content="user-scalable=no,width=device-width, minimum-scale=0.5, maximum-scale=1.0"/>
+<meta charset="UTF-8">
+
+<title>数说－用数据说话</title>
+<link rel="stylesheet" href="css/idangerous.swiper.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<img src="images/bg1.png" alt="背景" id='bg'>
+<div class="swiper-container" id='main-slide'>
+<div class="swiper-wrapper">
+	<div class="swiper-slide">
+		<div class="index-logo">
+			<img src="images/logo.png" alt="" height='115'>
+		</div>
+		<h1>专业数据可视化服务</h1>
+		<div class="footer">
+			<div class="arrow-up"></div> 
+			<p>上拉查看</p>
+		</div>
+	</div>
+	<div class="swiper-slide about">
+		<h1 class='pagetitle'>关于我们</h1>
+		<h2 class='subtitle g g1'>前沿</h2>
+		<p class='subcontent g g1'>时刻关注数据可视化最新进展，不断突破创新。</p>
+		<h2 class='subtitle g g2'>理念</h2>
+		<p class='subcontent g g2'> 从理解数据开始，了解数据背后所要表达的故事,让数据讲出她自己的故事。</p>
+		<h2 class='subtitle g g3'>态度</h2>
+		<p class='subcontent g g3'>精益求精,注重细节.</p>
+		<h2 class='subtitle g g4'>优势</h2>
+		<p class='subcontent g g4'>在与百度众多部门合作过程中，在对数据的理解，以及效果的设计和展示上，积累了丰富的经验。</p>
+	</div>
+	<div class="swiper-slide">
+		<h1 class='pagetitle'>案例</h1>
+		<div class="sample a">
+			<a href="http://shushuo.baidu.com/act/webtrend/?from=timeline&isappinstalled=0"><img src="images/sample0.jpg" alt="趋势报告" height='100'></a>
+		</div>
+		<div class="sample a">
+			<a href="http://shushuo.baidu.com/act/webtrend/?from=timeline&isappinstalled=0"><img src="images/sample0.jpg" alt="趋势报告" height='100'></a>
+		</div>
+		<div class="sample a">
+			<a href="http://shushuo.baidu.com/act/webtrend/?from=timeline&isappinstalled=0"><img src="images/sample0.jpg" alt="趋势报告" height='100'></a>
+		</div>
+		<div class="sample a">
+			<a href="http://shushuo.baidu.com/act/webtrend/?from=timeline&isappinstalled=0"><img src="images/sample0.jpg" alt="趋势报告" height='100'></a>
+		</div>
+		<div class="sample a">
+			<a href="http://shushuo.baidu.com/act/webtrend/?from=timeline&isappinstalled=0"><img src="images/sample0.jpg" alt="趋势报告" height='100'></a>
+		</div>
+		<div class="sample a">
+			<a href="http://shushuo.baidu.com/act/webtrend/?from=timeline&isappinstalled=0"><img src="images/sample0.jpg" alt="趋势报告" height='100'></a>
+		</div>
+		<div class="sample a">
+			<a href="http://shushuo.baidu.com/act/webtrend/?from=timeline&isappinstalled=0"><img src="images/sample0.jpg" alt="趋势报告" height='100'></a>
+		</div>
+		<div class="sample a">
+			<a href="http://shushuo.baidu.com/act/webtrend/?from=timeline&isappinstalled=0"><img src="images/sample0.jpg" alt="趋势报告" height='100'></a>
+		</div>
+	</div>
+	<div class="swiper-slide">
+		<h1 class='pagetitle'>联系我们</h1>
+		<div class="intro-block-clear">
+			<img src="images/email.png" alt="邮箱" width='100'>
+			<h1>邮箱</h1>
+			<p><a href= "mailto:f-cube@baidu.com">f-cube@baidu.com</a></p>
+		</div>
+		<div class="intro-block-clear">
+			<img src="images/QQ.png" alt="QQ" width='100'>
+			<h1>QQ</h1>
+			<p>234589330</p>
+		</div>
+	</div>
+</div>
+</div>
+<script src="./libs/jquery-1.10.1.min.js"></script>
+<script src="./libs/idangerous.swiper.js"></script>
+<script>
+  var swiper = new Swiper('#main-slide',{
+  	mode:'vertical',
+    slidesPerView: 1,
+    onSlideChangeStart:function(e){
+    	var idx = e.activeIndex;
+    	$("#bg").css({
+    		webkitTransform:"translate3d(0,"+(-130*idx)+"px,0)"
+    	});
+    	if(idx===1){
+    		$('.about .g').css({
+		      webkitTransform: 'translate3d(0px, 0px, 0px)',
+		      opacity: 1
+		    });
+    	}
+    }
+  })
+  </script>
+</body>
+</html>
